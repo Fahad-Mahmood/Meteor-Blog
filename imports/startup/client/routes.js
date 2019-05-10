@@ -12,6 +12,8 @@ import NotFoundPage from '../../ui/NotFoundPage.jsx';
 
 const browserHistory = createBrowserHistory();
 
+//setting up routes for the application using react router
+
 export const renderRoutes = () => (
     <Router history={browserHistory}>
         <Switch>
