@@ -1,26 +1,43 @@
 import React, { Component } from 'react';
 import { Container, Card, CardText, CardBody,CardHeader,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Posts } from '../api/posts';
+import { Mongo } from 'meteor/mongo'
 
-export default class Blog extends Component {
+class Blog extends Component {
 
+    constructor(props) {
+        super(props);
+}
 
     render() {
-        const blog = { _id: 1, title:'The Simple Reason Facebook Can’t Be Fixed', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum' };
+
         return (
             <div className="container">
                 <Container>
-                    <Card className="card bg-light mb-3">
-                        <CardHeader><strong>{blog.title}</strong></CardHeader>
+                {this.props.post.map((post,id) => (
+                    <Card key={id} className="card bg-light mb-3">
+                        <CardHeader><strong>{post.title}</strong></CardHeader>
                         <CardBody>
-                        <CardSubtitle>Card subtitle</CardSubtitle>
+                        <CardSubtitle>Publishing Date:{post.createdAt.toDateString()}</CardSubtitle>
                         <CardText>
-                            {blog.text}
+                            {post.text}
                         </CardText>
                         </CardBody>
                     </Card>
+                ))}
                 </Container>
             </div>
         );
     }
 }
+
+export default withTracker((props) => {
+    console.log(props.match.params.id);
+
+    Meteor.subscribe('post', props.match.params.id);
+    return {
+        post: Posts.find({}).fetch(),
+    };
+})(Blog);

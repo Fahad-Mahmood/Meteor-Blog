@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
+import History from 'history';
 
 // route components
 import BlogHome from '../../ui/BlogHome.jsx';
@@ -10,7 +10,7 @@ import Blog from '../../ui/Blog.jsx';
 import Admin from '../../ui/Admin.jsx';
 import NotFoundPage from '../../ui/NotFoundPage.jsx';
 
-const browserHistory = createBrowserHistory();
+const browserHistory = History.createBrowserHistory();
 
 //setting up routes for the application using react router
 

@@ -13,3 +13,7 @@ body {
 .readLink:hover{
   color:black;
 }
+
+a {
+  text-decoration: none;
+}
