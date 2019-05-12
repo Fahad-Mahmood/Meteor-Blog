@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import ReactDOM from 'react-dom'
 import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
+import { withTracker } from 'meteor/react-meteor-data';
 
+class AddBlog extends Component {
 
-export default class AddBlog extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     onSubmit(e) {
         e.preventDefault();
@@ -18,8 +22,9 @@ export default class AddBlog extends Component {
 
     render() {
         
-        return(
-            
+        return( 
+            <div>
+            { this.props.currentUser ?
             //Form for adding blog posts
             <Form onSubmit={this.onSubmit.bind(this)}>
                 <FormGroup>
@@ -32,6 +37,14 @@ export default class AddBlog extends Component {
                 </FormGroup>
                 <Button type="submit">Submit</Button>
             </Form>
+            : <p>You are not logged in</p>}
+            </div>
         );
     }
 }
+export default withTracker(() => {
+    
+    return {
+        currentUser: Meteor.user(),
+    };
+})(AddBlog);
