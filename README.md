@@ -2,8 +2,8 @@
 
 
 ## Installation 
-  meteor install
-  meteor
+    meteor install
+    meteor
  
  ## Routes
     /login
@@ -14,7 +14,7 @@
  
  
  ## InCompleted Tasks
-  Make guest and admin users 
-  authentication according to admin users
+    Assign role to users (admin and guest)
+    authentication according to admin users
  
  
