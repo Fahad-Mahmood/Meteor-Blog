@@ -7,7 +7,7 @@ body {
   background-attachment: fixed;
 }
 .readLink {
-  color:lightskyblue;
+  color:#3498db;
   transition: all .3s ease-in-out;
 }
 .readLink:hover{
@@ -16,4 +16,26 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.delete , .update {
+  float: right;
+  font-weight: bold;
+  background: none;
+  border: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.delete {
+  color:tomato;
+  font-size: 1.5em;
+}
+.update {
+  color:#3498db;
+}
+.update:hover {
+  color:black;
+}
+.delete:hover {
+  color: rgba(255, 99, 71, 0.486);
 }
