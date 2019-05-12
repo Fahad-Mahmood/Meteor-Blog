@@ -6,12 +6,11 @@
   meteor
  
  ## Routes
- 
- /login
- /signup
- /blog
- /blog/:id
- /add  
+    /login
+    /signup
+    /blog
+    /blog/:id
+    /add  
  
  
  ## InCompleted Tasks
