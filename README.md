@@ -11,6 +11,7 @@
     /blog
     /blog/:id
     /add  
+    /admin/users
  
  
  ## InComplete Tasks
